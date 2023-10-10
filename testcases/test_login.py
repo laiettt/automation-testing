@@ -2,7 +2,6 @@ from operation.mock_login import MockLogin
 from common.basic_enum import Code, Message
 import pytest
 import allure
-# from pytest import assume
 from testcases.conftest import get_testdata
 
 
@@ -19,10 +18,7 @@ class TestLogin(object):
     def test_login(self, account, password):
         login = MockLogin()
         response = login.login()
-        # with assume: assert response["code"] == account
-        # with assume: assert response["code"] == password
-        # with assume: assert response["code"] == Code.Success.value
-        # with assume: assert response["massage"] == Message.Success.value
+        # verify some result
         assert response["code"] == password
         assert response["code"] == account
         assert response["code"] == Code.Success.value
