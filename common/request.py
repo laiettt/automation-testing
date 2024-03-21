@@ -1,5 +1,6 @@
 import requests
 from config.environment import get_domain
+from config import environment
 
 
 class Request(object):
@@ -11,7 +12,7 @@ class Request(object):
         return cls._instance
 
     def __init__(self) -> None:
-        self.domain = get_domain()["environment"]["test"]
+        self.domain = get_domain()[environment.global_environment]["domain"]
         self.session = requests.Session()
 
     def post(self, api_url: str, header: dict = None, body: dict = None):

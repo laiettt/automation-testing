@@ -4,7 +4,7 @@ from functools import wraps
 from datetime import datetime
 import inspect
 
-BASE_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'logs')
+BASE_PATH = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'logs')
 
 
 class Logger(object):
@@ -33,7 +33,7 @@ class Logger(object):
             os.makedirs(folder_path, exist_ok=True)  # 若不存在就建立
             if self.logger.handlers:  # 若為初始化 handlers.list為空則不remove
                 self.logger.removeHandler(self.logger.handlers[0])
-            self.file_handler = logging.FileHandler(log_path)
+            self.file_handler = logging.FileHandler(log_path, encoding='utf-8')
             self.file_handler.setLevel(level=self.level)
             self.file_handler.setFormatter(fmt=self.formatter)
             self.logger.addHandler(self.file_handler)
@@ -56,3 +56,11 @@ class Logger(object):
     @log_file_handler_check
     def info(self, message: str, caller='') -> None:
         self.logger.info(f'[{caller}] {message}')
+
+    @get_caller
+    @log_file_handler_check
+    def error(self, message: str, caller='') -> None:
+        self.logger.error(f'[{caller}] {message}')
+
+
+logger = Logger()
