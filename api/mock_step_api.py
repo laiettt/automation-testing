@@ -1,13 +1,13 @@
-from common import request as request_package
+from common.logger import logger
 
-request = request_package.Request()
+global request
 
 
 def mock_login_step1_api(header: dict, body: dict):
-    api_url = "/mock/login_step1_api"
-    return request.post(api_url=api_url, header=header, body=body)
+    try:
+        api_url = "/qa/api/member/login"
+        return request.post(api_url=api_url, header=header, body=body)
+    except Exception as e:
+        logger.error(f'{e}')
+        raise Exception
 
-
-def mock_login_step2_api(header: dict):
-    api_url = "/mock/login_step2_api"
-    return request.get(api_url=api_url, header=header)

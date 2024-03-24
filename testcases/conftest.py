@@ -1,7 +1,8 @@
 import pytest
 from config import environment
 from common.logger import logger
-from common.request import Request
+from common import request as request_module
+from api import mock_step_api
 
 
 def pytest_addoption(parser):
@@ -44,10 +45,16 @@ def get_environment(init, request) -> str:
 def request_fixture():
     try:
         logger.info(f'---Create Request Session---')
-        Request()
+        request_module.global_request = request_module.Request()
+        mock_step_api.request = request_module.global_request
         logger.info(f'---Create Request Session Success---')
     except Exception as e:
         logger.error(f'{e}')
         raise Exception
 
 
+# @pytest.fixture(scope="function", autouse=True)
+# def say_hiiiii():
+#     logger.error(f'開始-最外層的conftest--------')
+#     yield
+#     logger.error(f'結束-最外層的conftest')

@@ -1,6 +1,10 @@
 import requests
 from config.environment import get_domain
 from config import environment
+from common.logger import logger
+import json
+
+global global_request
 
 
 class Request(object):
@@ -22,13 +26,22 @@ class Request(object):
         return self.request(api_url=api_url, method="GET", header=header, body=None)
 
     def request(self, api_url: str, method: str, header: dict, body: dict = None):
-        url = f"{self.domain}{api_url}"
-        if method == "POST":
-            return self.session.post(url=url, headers=header, json=body, timeout=3)
-        else:
-            return self.session.get(url=url, headers=header, timeout=3)
+        try:
+            url = f"{self.domain}{api_url}"
+            if method == "POST":
+                request_log(api_url=api_url, url=url, method="POST", header=header, body=body)
+                response = self.session.post(url=url, headers=header, json=body, timeout=3)
+            else:
+                request_log(url=url, method="GET", header=header, body=body)
+                response = self.session.get(url=url, headers=header, timeout=3)
+            logger.info(f'Response: {response}')
+            return response
+
+        except Exception as e:
+            logger.error(f'{e}')
+            raise Exception
 
 
-if __name__ == '__main__':
-    test = Request()
-    print(test.post(api_url="/asda", header={"asd": "asd"}, body={"asd": "asd"}))
+def request_log(**kwargs):
+    logger.info(json.dumps(kwargs, indent=4))
+
