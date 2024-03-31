@@ -10,5 +10,3 @@ def get_testdata(yaml_file_name: str):
     logger.info(f'---Ready To Get Testdata---')
     data = read_yaml(file_path=f"{BASE_PATH}/testdata/{yaml_file_name}")
     return data
-
-

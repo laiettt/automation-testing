@@ -15,19 +15,19 @@ class TestLogin(object):
 
     # @classmethod
     # def setup_class(cls):
-    #     logger.info("setup_class 初始化。。。")
+    #     logger.info("setup_class 開始。。。")
     #
     # @classmethod
     # def setup_method(cls):
-    #     logger.info("setup_method 初始化。。。")
+    #     logger.info("setup_method 開始。。。")
     #
     # @classmethod
     # def teardown_method(cls):
-    #     logger.info("setup_method 清理。。。")
+    #     logger.info("setup_method 結束。。。")
     #
     # @classmethod
     # def teardown_class(cls):
-    #     logger.info("teardown_class 清理。。。")
+    #     logger.info("teardown_class 結束。。。")
 
     @allure.story(f'{next(story_id)}使用者登入成功')
     @allure.title('{title}')
