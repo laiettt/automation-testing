@@ -9,3 +9,4 @@ class Code(Enum):
 class Message(Enum):
     Success = "成功"
     Error = "失敗"
+    Timeout = "timeout"

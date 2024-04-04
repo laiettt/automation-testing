@@ -34,13 +34,6 @@ def get_environment(init, request) -> str:
         raise Exception
 
 
-# @pytest.fixture(scope="class")
-# def setup_headers():
-#     logger.info(f'取得token並回塞header--------')
-    # yield
-    # logger.info(f'結束etup_token')
-
-
 @pytest.fixture(scope="session", autouse=True)
 def request_fixture():
     try:
@@ -51,10 +44,3 @@ def request_fixture():
     except Exception as e:
         logger.error(f'{e}')
         raise Exception
-
-
-# @pytest.fixture(scope="function", autouse=True)
-# def say_hiiiii():
-#     logger.error(f'開始-最外層的conftest--------')
-#     yield
-#     logger.error(f'結束-最外層的conftest')
