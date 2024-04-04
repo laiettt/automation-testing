@@ -5,25 +5,25 @@
 ## structure
 
 automation-testing/  
-|-- api  
-|-- common  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|-- request.py  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|-- logger.py  
-|-- config  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|-- environment.py  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|-- environment.yaml  
-|-- operation  
-|-- testcases  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|-- member  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|-- test_login.py  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|-- conftest.py  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|-- conftest.py  
-|-- testdata  
-|-- requirements.txt  
-|-- .gitignore  
-|-- Dockerfile  
-|-- pytest.ini  
-|-- README.md  
+&nbsp;|─ api  
+&nbsp;|─ common  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |─ request.py  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ logger.py  
+&nbsp;|─ config  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |─ environment.py  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ environment.yaml  
+&nbsp;|─ operation  
+&nbsp;|─ testcases  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |─ member  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |─ test_login.py  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ conftest.py  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ conftest.py  
+&nbsp;|─ testdata  
+&nbsp;|─ requirements.txt  
+&nbsp;|─ .gitignore  
+&nbsp;|─ Dockerfile  
+&nbsp;|─ pytest.ini  
+└─ README.md  
 
 ***
 ## structure summary
